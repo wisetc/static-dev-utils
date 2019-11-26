@@ -1,0 +1,34 @@
+@media (min-width: 320px) {
+  html {
+    font-size: 85.47px;
+  }
+  html body {
+    font-size: 0.14rem;
+  }
+}
+
+@media (min-width: 375px) {
+  html {
+    font-size: 100px;
+  }
+  html body {
+    font-size: 0.14rem;
+  }
+}
+
+button,
+a {
+  outline: none;
+  border: none;
+}
+
+input {
+  outline: none;
+}
+input::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}

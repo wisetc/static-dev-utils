@@ -1,0 +1,25 @@
+{
+  "name": "mobile-index",
+  "version": "1.0.0",
+  "description": "static-dev-utils",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node scripts/dev.js",
+    "build": "node scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "3.2.0",
+    "html-webpack-plugin": "4.0.0-beta.8",
+    "react-dev-utils": "9.1.0",
+    "style-loader": "1.0.0",
+    "webpack": "4.41.2",
+    "webpack-dev-server": "3.9.0"
+  },
+  "dependencies": {
+    "fs-extra": "8.1.0"
+  }
+}
