@@ -24,7 +24,7 @@ async function build() {
   const compiler = webpack(config);
   compiler.run((err, stats) => {
     if (err) {
-      console.log(err);
+      console.log('catch an error, ' + err.message);
       return;
     }
 

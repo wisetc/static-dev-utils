@@ -3,6 +3,7 @@
 const path = require('path');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const publicPath = './';
 const publicUrl = publicPath.slice(0, -1);
@@ -11,7 +12,7 @@ const publicUrl = publicPath.slice(0, -1);
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'index.[hash].js',
+    filename: 'index.[contenthash:8].js',
     path: path.join(__dirname, 'build'),
     publicPath,
   },
@@ -20,7 +21,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use:
+          process.env.NODE_ENV === 'production'
+            ? [MiniCssExtractPlugin.loader, 'css-loader']
+            : ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -29,6 +33,9 @@ module.exports = {
     new HTMLWebpackPlugin({
       inject: true,
       template: path.resolve('public/index.html'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css',
     }),
   ],
 };
